@@ -13,21 +13,16 @@ namespace MoneyToTurkishLira
             decimal kalan = tutar;
             decimal bolen = 1000000000000;
             int grup = 0;
-
             StringBuilder yazi = new StringBuilder();
-
             while (true)
             {
                 int bolum = (int)(kalan / bolen);
                 kalan = kalan % bolen;
-
                 yazi.Append(BasamakCozumle(bolum, grup));
-
                 if (kalan > 0)
                     grup++;
 
                 bolen = bolen / 1000;
-
                 if (kalan < 1 || kalan == 0)
                 {
                     yazi.Append(BasamakCozumle((int)(kalan * 100), grup));
